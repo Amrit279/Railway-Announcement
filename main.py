@@ -18,7 +18,7 @@ class Railway(tk.Tk):
         self.photo = ImageTk.PhotoImage(Image.open(image))
         tk.Label(self, image= self.photo).pack()
         tk.Button(self, text= "Listen Hindi Announcement", pady= 15, padx = 5, command= partial(self.annoucement, ('hi'), ('announce.xlsx'))).pack(pady= 1)
-        tk.Button(self, text = "Listen English Announcement", pady= 15).pack(pady= 1)
+        tk.Button(self, text = "Listen English Announcement", pady= 15, command= partial(self.annoucement, 'en', 'announce.xlsx')).pack(pady= 1)
 
     def textToSpeech(self, message, filename, language):
         self.info = gTTS(text= str(message), lang=language, slow= False)
@@ -46,12 +46,16 @@ class Railway(tk.Tk):
                 os.startfile(f"{item['train_no']}_hindi.mp3")
                 time.sleep(25)
             elif language == 'en':
-                self.textToSpeech(item['from'], '13.mp3', 'hi')
-                self.textToSpeech(item['via'], '15.mp3', 'hi')
-                self.textToSpeech(item['to'], '17.mp3', 'hi')
-                self.textToSpeech(item['train_no'] + " " + item['train_name'], '19.mp3', 'hi')
-                self.textToSpeech(item['platform'], '21.mp3', 'hi')
-                self.audios = [f"{i}.mp3" for i in range(12, 23)]
+                self.textToSpeech(item['train_name'], "13.mp3", 'en')
+                self.textToSpeech(item['train_no'], '15.mp3', 'en')
+                self.textToSpeech(item['from'], '17.mp3', 'en')
+                self.textToSpeech(item['via'], '19.mp3', 'en')
+                self.textToSpeech(item['to'], '21.mp3', 'en')
+                self.textToSpeech(item['platform'], '23.mp3', 'en')
+                self.audios = [f"{i}.mp3" for i in range(12, 24)]
+                self.mergeAudio(self.audios, f"{item['train_no']}_english.mp3")
+                os.startfile(f"{item['train_no']}_english.mp3")
+                time.sleep(25)
 
 if __name__ == "__main__":
     root = Railway("railway_image.png")

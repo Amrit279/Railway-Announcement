@@ -1,25 +1,34 @@
-from pydub import AudioSegment # pip install pyaudio
+from gtts import gTTS
 from tkinter.messagebox import showerror
 
 def generateBasicAnnouncement_hindi():
-    try:
-        audio = AudioSegment.from_mp3("railway.mp3")
-    except:
-        showerror("File Not found", "railway.mp3 cannot be found")
-        exit()
-
     # kripya dhyan dijiye
-    audio[88000:90200].export("1.mp3")
+    gTTS(text= "kripya dhyan dijiye", lang= "hi", slow= False).save("1.mp3")
     # se chalkar
-    audio[91000:92200].export("3.mp3")
+    gTTS(text="se chalkar"  , lang= "hi" , slow= False).save("3.mp3")
     # ke raste
-    audio[94000:95000].export("5.mp3")
+    gTTS(text="ke raste"  , lang= "hi" , slow= False).save("5.mp3")
     # ko jane wali gadi sankhya
-    audio[96000:98900].export("7.mp3")
+    gTTS(text= "ko jane wali gadi sankhya" , lang= "hi" , slow= False).save("7.mp3")
     # kuch hi samay mai platform sankhya
-    audio[105500:108200].export("9.mp3")
+    gTTS(text= "kuch hi samay mai platform sankhya" , lang= "hi" , slow= False).save("9.mp3")
     # par a rahi hai
-    audio[109000:112250].export("11.mp3")
+    gTTS(text= "par a rahi hai" , lang= "hi" , slow= False).save("11.mp3")
+
+def generateBasicAnnouncement_english():
+    # please listen
+    gTTS(text= "please listen", lang= "en",slow=False).save("12.mp3")    
+    # having train no
+    gTTS(text= "having train no", lang= "en",slow=False).save("14.mp3")
+    # moving from
+    gTTS(text= "moving from", lang= "en",slow=False).save("16.mp3")
+    # passing through
+    gTTS(text= "passing through", lang= "en",slow=False).save("18.mp3")
+    # to reach
+    gTTS(text= "to reach", lang= "en", slow=False).save("20.mp3")
+    # will reach shortly on platform number
+    gTTS(text= "will reach shortly on platform number", lang= "en",slow=False).save("22.mp3")
 
 if __name__ == "__main__":
     generateBasicAnnouncement_hindi()
+    generateBasicAnnouncement_english()
