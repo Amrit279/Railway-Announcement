@@ -1,7 +1,9 @@
 from gtts import gTTS
-from tkinter.messagebox import showerror
 
 def generateBasicAnnouncement_hindi():
+    """
+    Generates Template Sounds of Hindi Railway Announcement
+    """
     # kripya dhyan dijiye
     gTTS(text= "kripya dhyan dijiye", lang= "hi", slow= False).save("1.mp3")
     # se chalkar
@@ -16,6 +18,9 @@ def generateBasicAnnouncement_hindi():
     gTTS(text= "par a rahi hai" , lang= "hi" , slow= False).save("11.mp3")
 
 def generateBasicAnnouncement_english():
+    """
+    Generates Template For English Railway Announcement
+    """
     # please listen
     gTTS(text= "please listen", lang= "en",slow=False).save("12.mp3")    
     # having train no
