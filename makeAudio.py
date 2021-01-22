@@ -28,8 +28,8 @@ def generateBasicAnnouncement_english():
     """
     # please listen
     gTTS(text= "please listen", lang= "en",slow=False).save("12.mp3")    
-    # having train no
-    gTTS(text= "having train no", lang= "en",slow=False).save("14.mp3")
+    # having train number
+    gTTS(text= "having train number", lang= "en",slow=False).save("14.mp3")
     # moving from
     gTTS(text= "moving from", lang= "en",slow=False).save("16.mp3")
     # passing through

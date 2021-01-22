@@ -11,6 +11,7 @@ from PIL import Image, ImageTk # pip install pillow
 from functools import partial
 import os
 import time
+import makeAudio # Not an in-built or installed module
 
 class Railway(tk.Tk):
     """
@@ -18,7 +19,8 @@ class Railway(tk.Tk):
     """
     def __init__(self, image):
         """
-        Creates a Basic GUI window for the annoucement application
+        Creates a Basic GUI window for the annoucement application and also generates basic
+        audio templates by using makeAudio.py file
 
         @params image: Image for the GUI
         """
@@ -29,6 +31,8 @@ class Railway(tk.Tk):
         tk.Label(self, image= self.photo).pack()
         tk.Button(self, text= "Listen Hindi Announcement", pady= 15, padx = 5, command= partial(self.annoucement, ('hi'), ('announce.xlsx'))).pack(pady= 1)
         tk.Button(self, text = "Listen English Announcement", pady= 15, command= partial(self.annoucement, 'en', 'announce.xlsx')).pack(pady= 1)
+        makeAudio.generateBasicAnnouncement_hindi()
+        makeAudio.generateBasicAnnouncement_english()
 
     def textToSpeech(self, message, filename, language):
         """
