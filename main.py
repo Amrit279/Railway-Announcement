@@ -1,3 +1,8 @@
+"""
+Author: Amrit279
+Date: January 20, 2021
+Git Hub Repository: Railway-Announcement
+"""
 import tkinter as tk
 from pydub import AudioSegment # pip install pyaudio
 from gtts import gTTS #pip install gTTS

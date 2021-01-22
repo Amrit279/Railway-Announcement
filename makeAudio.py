@@ -1,3 +1,8 @@
+"""
+Author: Amrit279
+Date: January 20, 2021
+Git Hub Repository: Railway-Announcement
+"""
 from gtts import gTTS
 
 def generateBasicAnnouncement_hindi():
